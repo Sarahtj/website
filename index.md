@@ -11,6 +11,8 @@ ROB 499/599 Deep Learning for Robot Perception
 
 Niva Ranavat, Sarah Jamil, Adithya Raman, Jacob Klinger
 
+---
+
 [Vitpose Documentation][vitpose]{: .btn .fs-5 .mb-4 .mb-md-0 }
 [View it on GitHub][vitpose extension repo]{: .btn .fs-5 .mb-4 .mb-md-0 }
 
@@ -26,10 +28,31 @@ Human pose estimation is a fundamental task in computer vision with applications
 --- 
 
 ## Dataset
+We used the MS COCO dataset. The MS COCO dataset for human pose estimation provides images with rich annotations of keypoints for multiple people, including 17 body joints such as elbows, knees, and ankles. It was used in the original ViTPose and is also  widely used as a benchmark for evaluating human pose estimation models due to its diverse and challenging real-world scenes.
+
+[View the dataset][coco dataset]{: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
 
 ## Network Architecture and Setup
+
+Inputs:
+- ThreeDPW Dataset Loader: Custom data loader tailored for the 3D Poses in the Wild (ThreeDPW) dataset
+Modules:
+- Data Preprocessing Module:
+--Handles data normalization, augmentation, and preparation for training and evaluation
+--Ensures compatibility with the model's input requirements
+-Pose Estimation Model:
+--Implements the core architecture for predicting human poses from input data
+--Utilizes deep learning techniques to infer 3D joint positions
+-Visualization Tools:
+--Scripts and utilities for visualizing predicted poses against ground truth
+--Aids in qualitative assessment of model performance
+Outputs:
+-Refined 3D Human Poses:
+--3D joint positions representing human poses in various scenarios
+--Suitable for downstream tasks such as action recognition or animation
+
 
 ---
 ## Results
@@ -38,3 +61,4 @@ Human pose estimation is a fundamental task in computer vision with applications
 
 [vitpose extension repo]: https://github.com/nranavat1/Refined_Human_Pose_Estimation
 [vitpose]: https://arxiv.org/abs/2204.12484
+[coco dataset]: https://cocodataset.org/#home
