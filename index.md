@@ -1,9 +1,12 @@
 ---
 title: Home
 layout: home
+title: Background
+layout: home
+nav_enabled: true
 ---
 
-intro
+We conduct an ablation study on the original ViTPose architecture by fine-tuning it to incorporate a Feature Pyramid Network (FPN), aiming to enhance the accuracy of Human Pose Estimation. One limitation of the original ViTPose is its tendency to overlook fine-grained details and smaller features, particularly in scenes where objects are close together or overlapping. By integrating FPN, we aim to address this issue by improving multi-scale feature representation.
 
 ----
 
