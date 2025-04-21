@@ -35,10 +35,10 @@ We used the MS COCO dataset. The MS COCO dataset for human pose estimation provi
 ### Original VitPose:
 Inputs:
 - RGB Images:
--- Standard 2D images, typically from datasets like COCO or MPII
--- Resized and normalized to match model requirements
+  - Standard 2D images, typically from datasets like COCO or MPII
+  - Resized and normalized to match model requirements
 -  2D Keypoint Annotations (during training):
--- Supervised keypoint labels for calculating heatmap-based loss
+  - Supervised keypoint labels for calculating heatmap-based loss
 
 Modules:
 - Patch Embedding Module:
@@ -61,7 +61,8 @@ Outputs:
 
 ### Proposed Change:
 Inputs:
-- ThreeDPW Dataset Loader: Custom data loader tailored for the 3D Poses in the Wild (ThreeDPW) dataset
+- ThreeDPW Dataset Loader:
+  - Custom data loader tailored for the 3D Poses in the Wild (ThreeDPW) dataset
 
 Modules:
 - Data Preprocessing Module:
