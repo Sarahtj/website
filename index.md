@@ -33,6 +33,9 @@ We used the MS COCO dataset. The MS COCO dataset for human pose estimation provi
 ## Network Architecture and Setup
 
 ### Original VitPose:
+
+![](1.jpg)
+
 Inputs:
 - RGB Images:
   - Standard 2D images, typically from datasets like COCO or MPII
@@ -58,6 +61,8 @@ Outputs:
 - Keypoint Coordinates (post-processing):
   - Extracted joint locations from heatmaps via argmax or soft-argmax
   - Used for evaluation metrics such as PCK (Percentage of Correct Keypoints)
+
+![](2.jpg)
 
 ### Proposed Change:
 Inputs:
