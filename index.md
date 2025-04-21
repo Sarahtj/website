@@ -13,7 +13,7 @@ Niva Ranavat, Sarah Jamil, Adithya Raman, Jacob Klinger
 
 ---
 
-[Vitpose Documentation][vitpose]{: .btn .fs-5 .mb-4 .mb-md-0 }
+[Vitpose Documentation][vitpose]{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 [View it on GitHub][vitpose extension repo]{: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
@@ -38,20 +38,22 @@ We used the MS COCO dataset. The MS COCO dataset for human pose estimation provi
 
 Inputs:
 - ThreeDPW Dataset Loader: Custom data loader tailored for the 3D Poses in the Wild (ThreeDPW) dataset
+
 Modules:
 - Data Preprocessing Module:
---Handles data normalization, augmentation, and preparation for training and evaluation
---Ensures compatibility with the model's input requirements
--Pose Estimation Model:
---Implements the core architecture for predicting human poses from input data
---Utilizes deep learning techniques to infer 3D joint positions
--Visualization Tools:
---Scripts and utilities for visualizing predicted poses against ground truth
---Aids in qualitative assessment of model performance
+-- Handles data normalization, augmentation, and preparation for training and evaluation
+-- Ensures compatibility with the model's input requirements
+- Pose Estimation Model:
+-- Implements the core architecture for predicting human poses from input data
+-- Utilizes deep learning techniques to infer 3D joint positions
+- Visualization Tools:
+-- Scripts and utilities for visualizing predicted poses against ground truth
+-- Aids in qualitative assessment of model performance
+
 Outputs:
--Refined 3D Human Poses:
---3D joint positions representing human poses in various scenarios
---Suitable for downstream tasks such as action recognition or animation
+- Refined 3D Human Poses:
+-- 3D joint positions representing human poses in various scenarios
+-- Suitable for downstream tasks such as action recognition or animation
 
 
 ---
