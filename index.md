@@ -92,6 +92,9 @@ Outputs:
   - Suitable for downstream tasks such as action recognition or animation
 
 ### Future Pose Predictions:
+
+![](3dpws.png)
+
 Inputs:
 - 2D Keypoint Sequences:
   - Normalized 2D keypoints extracted from RGB images using ViTPose
@@ -120,6 +123,9 @@ Outputs:
 
 ### Future Pose Prediction
 
+![](image.png)
+
+![](image-5.png)
 
 ---
 
