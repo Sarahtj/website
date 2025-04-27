@@ -137,4 +137,4 @@ The results of our pose prediction experiments showed that while the model was a
 [vitpose extension repo]: https://github.com/nranavat1/Refined_Human_Pose_Estimation
 [vitpose]: https://arxiv.org/abs/2204.12484
 [coco dataset]: https://cocodataset.org/#home
-[3d poses in the wild]: https://www.google.com/search?client=safari&rls=en&q=3d+poses+in+the+wild&ie=UTF-8&oe=UTF-8
+[3d poses in the wild]: https://virtualhumans.mpi-inf.mpg.de/3DPW/
