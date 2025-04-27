@@ -15,6 +15,7 @@ Niva Ranavat, Sarah Jamil, Adithya Raman, Jacob Klinger
 
 ---
 We conducted an ablation study on the original ViTPose architecture by fine-tuning it to incorporate a Feature Pyramid Network (FPN), aiming to enhance the accuracy of Human Pose Estimation. One limitation of the original ViTPose is its tendency to overlook fine-grained details and smaller features, particularly in scenes where objects are close together or overlapping. By integrating FPN, we aim to address this issue by improving multi-scale feature representation.
+In addition to this, we extended ViTPose by designing a secondary pose prediction network. In this framework, ViTPose is first used as a feature extractor on sequences of video frames, and a lightweight transformer model is then trained to predict the future poses across multiple frames. This extension allowed us to explore not just static pose estimation, but the task of forecasting human motion over time based on visual input.
 
 ---
 ## Background
@@ -23,11 +24,16 @@ Human pose estimation is a fundamental task in computer vision with applications
 
 The original ViTPose model applies Vision Transformers (ViTs) to the task of human pose estimation by treating each image as a sequence of patches and processing them through self-attention layers to capture long-range spatial dependencies. Unlike traditional convolution-based methods, ViTPose leverages global context to accurately predict keypoints, achieving state-of-the-art results on benchmarks like COCO and MPII. It uses a simple yet effective backbone and a linear head to directly regress heatmaps for each keypoint, demonstrating that transformer-based models can excel in dense prediction tasks when properly adapted.
 
+Predicting future human poses extends traditional pose estimation into the temporal domain, aiming to model and forecast human motion dynamics. This task requires learning not only spatial configurations of the body but also how these configurations evolve over time. Approaches for pose prediction typically involve sequence modeling techniques such as recurrent neural networks, temporal convolutions, or transformers. Accurate future pose forecasting has important applications in action anticipation, autonomous systems, and augmented reality, where understanding human motion trajectories is critical.
+
 --- 
 ## Dataset
 We used the MS COCO dataset. The MS COCO dataset for human pose estimation provides images with rich annotations of keypoints for multiple people, including 17 body joints such as elbows, knees, and ankles. It was used in the original ViTPose and is also  widely used as a benchmark for evaluating human pose estimation models due to its diverse and challenging real-world scenes.
 
-[View the dataset][coco dataset]{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+For motion forecasting experiments, we utilized the 3D Poses in the Wild (3DPW) dataset. The 3DPW dataset contains real-world video sequences with accurate 3D and 2D pose annotations, captured from wearable IMUs and synchronized camera footage, making it valuable for studying human motion over time.
+
+[View the coco dataset][coco dataset]{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[View the 3dpw dataset][3d poses in the wild]{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
 ---
 ## Network Architecture and Setup
@@ -85,11 +91,39 @@ Outputs:
   - 3D joint positions representing human poses in various scenarios
   - Suitable for downstream tasks such as action recognition or animation
 
+### Future Pose Predictions:
+Inputs:
+- 2D Keypoint Sequences:
+  - Normalized 2D keypoints extracted from RGB images using ViTPose
+  - Represented as sequences of 10 frames (input window)
+
+Modules:
+- Input Projection Layer:
+  - Applies a linear transformation to project each 2D keypoint vector into a hidden feature space
+  - Enables compatibility with transformer input expectations
+- Transformer Encoder:
+  - Models temporal dependencies across the sequence of frames
+  - Uses multi-head self-attention to capture how poses evolve over time
+- Pose Prediction Decoder:
+  - A linear layer that maps encoded features back into predicted 2D keypoint coordinates
+  - Predicts multiple future frames (typically 5)
+
+Outputs:
+- Predicted 2D Keypoint Sequences:
+  - 5 frames of predicted future keypoints
+  - Each frame output is a set of (x, y) coordinates for each joint
+
 ---
 ## Results
+
+### Feature Pyramid Network
+
+### Future Pose Prediction
+
 
 ---
 
 [vitpose extension repo]: https://github.com/nranavat1/Refined_Human_Pose_Estimation
 [vitpose]: https://arxiv.org/abs/2204.12484
 [coco dataset]: https://cocodataset.org/#home
+[3d poses in the wild]: https://www.google.com/search?client=safari&rls=en&q=3d+poses+in+the+wild&ie=UTF-8&oe=UTF-8
