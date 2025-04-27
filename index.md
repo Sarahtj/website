@@ -130,7 +130,7 @@ Examples of predicted keypoints from the extended Vitpose Predictor:
 
 ![](image-5.png)
 
-The results of our pose prediction experiments showed that while the model was able to capture general trends in motion, its quantitative accuracy was relatively low. Using a 30-pixel threshold for correctness, the average accuracy across the five predicted frames hovered around 10%, with the first predicted frame typically achieving slightly higher accuracy than later frames. Qualitatively, many predicted poses visually resembled the ground-truth poses, although they often missed precise joint locations. These results reflect the difficulty of long-term motion prediction from limited input data and 2D-only pose information.
+The results of our pose prediction experiments showed that while the model was able to capture general trends in motion, its quantitative accuracy was relatively low. Using a 50-pixel threshold for correctness, the average accuracy across the five predicted frames hovered around 25%, with the first predicted frame typically achieving slightly higher accuracy than later frames. Qualitatively, many predicted poses visually resembled the ground-truth poses, although they often missed precise joint locations. These results reflect the difficulty of long-term motion prediction from limited input data and 2D-only pose information.
 
 ---
 
