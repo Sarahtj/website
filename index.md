@@ -130,7 +130,7 @@ Examples of predicted keypoints from the extended Vitpose Predictor:
 
 ![](image-5.png)
 
-To extend pose estimation into the temporal domain, we designed a lightweight pose prediction network that predicts future human poses from observed keypoint sequences. Starting from 2D keypoints extracted using ViTPose, a linear projection first maps the input into a hidden feature space. A Transformer encoder then models the temporal relationships across the 10 input frames, capturing how human motion evolves over time. Finally, a simple decoder projects these temporal features into predicted 2D keypoints for 5 future frames. The model is trained by minimizing the L2 distance between predicted and ground-truth keypoints, enabling it to learn motion patterns and anticipate future poses.
+The results of our pose prediction experiments showed that while the model was able to capture general trends in motion, its quantitative accuracy was relatively low. Using a 30-pixel threshold for correctness, the average accuracy across the five predicted frames hovered around 10%, with the first predicted frame typically achieving slightly higher accuracy than later frames. Qualitatively, many predicted poses visually resembled the ground-truth poses, although they often missed precise joint locations. These results reflect the difficulty of long-term motion prediction from limited input data and 2D-only pose information.
 
 ---
 
