@@ -93,7 +93,8 @@ Outputs:
 
 ### Future Pose Predictions:
 
-![](3dpws.png)
+![](image-6.png)
+Example of frame images from the 3D Poses in the Wild dataset
 
 Inputs:
 - 2D Keypoint Sequences:
@@ -123,9 +124,13 @@ Outputs:
 
 ### Future Pose Prediction
 
+Examples of predicted keypoints from the extended Vitpose Predictor:
+
 ![](image.png)
 
 ![](image-5.png)
+
+To extend pose estimation into the temporal domain, we designed a lightweight pose prediction network that predicts future human poses from observed keypoint sequences. Starting from 2D keypoints extracted using ViTPose, a linear projection first maps the input into a hidden feature space. A Transformer encoder then models the temporal relationships across the 10 input frames, capturing how human motion evolves over time. Finally, a simple decoder projects these temporal features into predicted 2D keypoints for 5 future frames. The model is trained by minimizing the L2 distance between predicted and ground-truth keypoints, enabling it to learn motion patterns and anticipate future poses.
 
 ---
 
