@@ -32,8 +32,8 @@ We used the MS COCO dataset. The MS COCO dataset for human pose estimation provi
 
 For motion forecasting experiments, we utilized the 3D Poses in the Wild (3DPW) dataset. The 3DPW dataset contains real-world video sequences with accurate 3D and 2D pose annotations, captured from wearable IMUs and synchronized camera footage, making it valuable for studying human motion over time.
 
-[View the coco dataset][coco dataset]{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
-[View the 3dpw dataset][3d poses in the wild]{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[View the COCO dataset][coco dataset]{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[View the 3DPW dataset][3d poses in the wild]{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
 ---
 ## Network Architecture and Setup
