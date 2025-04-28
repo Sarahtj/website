@@ -122,6 +122,18 @@ Outputs:
 
 ### Feature Pyramid Network
 
+Using the provided ViTPose-B weights, we were able to successfully reproduce the results of the paper, confirming an AP of 75.8 and an AR 81.1
+
+![](T_23.png)
+
+From our experimentation of using intermediate feature outputs from the transformer backbone, we produced the results in Table 
+Table II, as seen above. The two models sampled outputs for the FPN at various locations along the backbone, which included us trying to evenly space out the sampling and back load the sampling. Each model was trained using the frozen backbone weights of the base ViTPose model over 30 epochs on one tenth of the COCO dataset. Here we noticed that the use of intermediate layers to create our feature pyramid dramatically deceased model performance compared to the base model. However, by using intermediate features from transformer blocks closer to the end of the backbone, there was a slight increase in performance compared to the evenly spaced sampling.
+
+Finally, during our testing that used all of the feature maps which were produced from the last transformer block output, we found that the dense stride scheme produced the best results. Table III displays these results. This approach leveraged four different feature maps which were obtained using strides: 1, 2, 4, 8. All of these feature maps were passed into the decoder which up sampled them to the resolution of the largest map and concatenated them along the channel dimension. The results shown were obtained by training for a duration of 30 epochs over one tenth of the COCO dataset. Using this model, we also produced the results shown below.
+
+![](vis_fpn_vitpose_simple4.jpg)
+
+
 ### Future Pose Prediction
 
 Examples of predicted keypoints from the extended Vitpose Predictor:
