@@ -1,11 +1,9 @@
 ---
-title: Home
+title: Refining ViTPose: Enhancing Human Pose Estimation and Future Motion Prediction with Feature Pyramids and Transformers
 layout: default
 nav_order: 1
 has_toc: true
 ---
-# Refining ViTPose: Enhancing Human Pose Estimation and Future Motion Prediction with Feature Pyramids and Transformers
-{: .fs-9 }
 
 ROB 499/599 Deep Learning for Robot Perception
 
