@@ -11,7 +11,9 @@ ROB 499/599 Deep Learning for Robot Perception
 Niva Ranavat, Sarah Jamil, Adithya Raman, Jacob Klinger
 
 [Vitpose Documentation][vitpose]{: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
-[View it on GitHub][vitpose extension repo]{: .btn .fs-5 .mb-4 .mb-md-0 }
+
+[View VitPose FPN on GitHub][vitpose extension repo]{: .btn .fs-5 .mb-4 .mb-md-0 }
+[View VitPose Pose Prediction on GitHub][vitpose pose prediction]{: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
 We conducted an ablation study on the original ViTPose architecture by fine-tuning it to incorporate a Feature Pyramid Network (FPN), aiming to enhance the accuracy of Human Pose Estimation. One limitation of the original ViTPose is its tendency to overlook fine-grained details and smaller features, particularly in scenes where objects are close together or overlapping. By integrating FPN, we aim to address this issue by improving multi-scale feature representation.
@@ -147,6 +149,7 @@ The results of our pose prediction experiments showed that while the model was a
 ---
 
 [vitpose extension repo]: https://github.com/klingjac/ViTPoseFPN
+[vitpose pose prediction]: https://github.com/Sarahtj/Vitpose_Pose_Prediction
 [vitpose]: https://arxiv.org/abs/2204.12484
 [coco dataset]: https://cocodataset.org/#home
 [3d poses in the wild]: https://virtualhumans.mpi-inf.mpg.de/3DPW/
