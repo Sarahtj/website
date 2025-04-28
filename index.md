@@ -17,6 +17,9 @@ Niva Ranavat, Sarah Jamil, Adithya Raman, Jacob Klinger
 [View VitPose Pose Prediction on GitHub][vitpose pose prediction]{: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
+{: .toc }
+---
+
 We conducted an ablation study on the original ViTPose architecture by fine-tuning it to incorporate a Feature Pyramid Network (FPN), aiming to enhance the accuracy of Human Pose Estimation. One limitation of the original ViTPose is its tendency to overlook fine-grained details and smaller features, particularly in scenes where objects are close together or overlapping. By integrating FPN, we aim to address this issue by improving multi-scale feature representation.
 In addition to this, we extended ViTPose by designing a secondary pose prediction network. In this framework, ViTPose is first used as a feature extractor on sequences of video frames, and a lightweight transformer model is then trained to predict the future poses across multiple frames. This extension allowed us to explore not just static pose estimation, but the task of forecasting human motion over time based on visual input.
 
