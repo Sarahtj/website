@@ -142,7 +142,7 @@ Table II, as seen above. The two models sampled outputs for the FPN at various l
 
 Finally, during our testing that used all of the feature maps which were produced from the last transformer block output, we found that the dense stride scheme produced the best results. Table III displays these results. This approach leveraged four different feature maps which were obtained using strides: 1, 2, 4, 8. All of these feature maps were passed into the decoder which up sampled them to the resolution of the largest map and concatenated them along the channel dimension. The results shown were obtained by training for a duration of 30 epochs over one tenth of the COCO dataset. Using this model, we also produced the results shown below.
 
-![](vis_fpn_vitpose_simple4.jpg)
+![](vis_fpn_vitpose_simple4.jpg)  ![](vis_fpn_vitpose_simple5.jpg)
 
 
 ### Future Pose Prediction
