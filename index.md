@@ -146,7 +146,7 @@ Example: Good Pose Prediction
 ![](good.png) 
 
 Example: Poor Pose Prediction
-![](bad.png)
+![](poor.png)
 
 
 ### Future Pose Prediction
