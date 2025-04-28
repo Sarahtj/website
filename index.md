@@ -3,7 +3,7 @@ title: Home
 layout: home
 nav_order: 1
 ---
-# Refining ViTPose: A Transformer-Based Encoder-Decoder Framework with Feature Pyramids for Human Pose Estimation
+# Refining ViTPose: Enhancing Human Pose Estimation and Future Motion Prediction with Feature Pyramids and Transformers
 {: .fs-9 }
 
 ROB 499/599 Deep Learning for Robot Perception
@@ -72,28 +72,35 @@ Outputs:
 
 ![](2.jpg)
 
-### Proposed Change:
+### Proposed Change for FPN Extension:
+
 Inputs:
-- ThreeDPW Dataset Loader:
-  - Custom data loader tailored for the 3D Poses in the Wild (ThreeDPW) dataset
+- COCO 2017 Subset Loader:
+  - Custom loader using a reduced version of the COCO 2017 dataset.
+  - Provides images and 2D human pose annotations (keypoints) for training and evaluation.
 
 Modules:
-- Data Preprocessing Module:
-  - Handles data normalization, augmentation, and preparation for training and evaluation
-  - Ensures compatibility with the model's input requirements
-- Pose Estimation Model:
-  - Implements the core architecture for predicting human poses from input data
-  - Utilizes deep learning techniques to infer 3D joint positions
-- Visualization Tools:
-  - Scripts and utilities for visualizing predicted poses against ground truth
-  - Aids in qualitative assessment of model performance
+- ViTPose Backbone (Frozen):
+  - Pretrained ViTPose-B model used as a fixed feature extractor.
+  - Outputs intermediate features after each transformer block for FPN construction.
+- Feature Pyramid Network (FPN) Neck:
+  - Builds multi-scale feature maps from selected transformer outputs.
+  - Uses 1x1 convolutions and bilinear upsampling to align feature sizes.
+  - Adds top-down skip connections to fuse spatial and semantic information.
+- Modified Pose Estimation Decoder:
+  - Upsamples and concatenates FPN features.
+  - Predicts 2D keypoint heatmaps from the refined multi-scale features.
+  - Maintains a lightweight architecture for efficient decoding.
 
 Outputs:
-- Refined 3D Human Poses:
-  - 3D joint positions representing human poses in various scenarios
-  - Suitable for downstream tasks such as action recognition or animation
+- 2D Human Keypoint Heatmaps:
+  - Refined spatial probability maps for 17 human joints.
+  - Improved resolution and small joint prediction compared to the baseline.
+- Keypoint Coordinate Predictions (Post-Processing):
+  - Joint locations extracted from heatmaps.
+  - Used for quantitative evaluation with COCO metrics (AP, AR).
 
-### Future Pose Predictions:
+### Proposed Change for Pose Predictions Extension:
 
 ![](image-6.png)
 Example of frame images from the 3D Poses in the Wild dataset
