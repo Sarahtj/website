@@ -18,8 +18,7 @@ Niva Ranavat, Sarah Jamil, Adithya Raman, Jacob Klinger
 
 ---
 
-We conducted an ablation study on the original ViTPose architecture by fine-tuning it to incorporate a Feature Pyramid Network (FPN), aiming to enhance the accuracy of Human Pose Estimation. One limitation of the original ViTPose is its tendency to overlook fine-grained details and smaller features, particularly in scenes where objects are close together or overlapping. By integrating FPN, we aim to address this issue by improving multi-scale feature representation.
-In addition to this, we extended ViTPose by designing a secondary pose prediction network. In this framework, ViTPose is first used as a feature extractor on sequences of video frames, and a lightweight transformer model is then trained to predict the future poses across multiple frames. This extension allowed us to explore not just static pose estimation, but the task of forecasting human motion over time based on visual input.
+We conducted an ablation study on the original ViTPose architecture by fine-tuning it with the integration of a Feature Pyramid Network (FPN), aiming to enhance the accuracy of human pose estimation. A known limitation of the original ViTPose is its tendency to overlook fine-grained details and small-scale features, particularly in crowded scenes with overlapping objects. By incorporating FPN, we sought to improve the model’s multi-scale spatial representation and refine keypoint localization. Beyond static pose estimation, we further extended ViTPose by introducing a temporal forecasting framework. Using ViTPose as a feature extractor, we developed two pose prediction models based on a lightweight Transformer architecture: a baseline model trained with a standard configuration, and an improved model trained with Smooth L1 Loss and extended epochs. These models were tasked with predicting future human poses over a sequence of frames. While the baseline model captured general motion trends, the modified model demonstrated enhanced stability and accuracy in short-term human motion forecasting, establishing a strong foundation for future work.
 
 ---
 ## Background
@@ -151,13 +150,21 @@ Example: Poor Pose Prediction
 
 ### Future Pose Prediction
 
-Examples of predicted keypoints from the extended Vitpose Predictor:
+Examples of predicted keypoints from the extended Vitpose Predictor - Model 1:
 
 ![](image.png)
 
 ![](image-5.png)
 
-The results of our pose prediction experiments showed that while the model was able to capture general trends in motion, its quantitative accuracy was relatively low. Using a 50-pixel threshold for correctness, the average accuracy across the five predicted frames hovered around 25%, with the first predicted frame typically achieving slightly higher accuracy than later frames. Qualitatively, many predicted poses visually resembled the ground-truth poses, although they often missed precise joint locations. These results reflect the difficulty of long-term motion prediction from limited input data and 2D-only pose information.
+The results of the first pose prediction model experiments showed that while the model was able to capture general trends in motion, its quantitative accuracy was relatively low. Using a 50-pixel threshold for correctness, the average accuracy across the five predicted frames hovered around 25%, with the first predicted frame typically achieving slightly higher accuracy than later frames. Qualitatively, many predicted poses visually resembled the ground-truth poses, although they often missed precise joint locations. These results reflect the difficulty of long-term motion prediction from limited input data and 2D-only pose information.
+
+Examples of predicted keypoints from the extended Vitpose Predictor - Model 2:
+
+![](all_frames_combined.png)
+
+![](all_frames_combined1.png)
+
+For the second pose prediction model, trained with Smooth L1 Loss and an extended training schedule of 50 epochs, we observed significant improvements in both qualitative and quantitative performance. The model achieved a final training accuracy of 96.38%, and its predicted poses more closely matched ground-truth motion sequences across the five future frames. Although the 50-pixel threshold evaluation was not directly re-computed in the same way as for the baseline, qualitative inspection showed that predicted joint positions exhibited greater stability, with fewer large deviations or drift over time. Later frames, which previously suffered from increasing misalignment, maintained better structural consistency and limb positioning in the improved model. These results suggest that the modifications to the training procedure helped the model better capture temporal dynamics and mitigate error accumulation, though challenges still remained in fine-grained joint localization and prediction of subtle motions.
 
 ---
 
