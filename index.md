@@ -71,7 +71,7 @@ Outputs:
   - Extracted joint locations from heatmaps via argmax or soft-argmax
   - Used for evaluation metrics such as PCK (Percentage of Correct Keypoints)
 
-![](2.jpg)
+![](FPN_diagram.png)
 
 ### Proposed Change for FPN Extension:
 
